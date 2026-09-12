@@ -1,0 +1,142 @@
+% ---------- Packages ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}              % for 1.5 spacing
+\onehalfspacing
+\usepackage{titlesec}              % tidy section titles
+\usepackage{graphicx}              % figures
+\graphicspath{{images/}}
+\usepackage{float}                 % [H] specifier
+\usepackage{subcaption}            % subfigures if needed
+\usepackage{booktabs}              % nice tables
+\usepackage{array}
+\usepackage{siunitx}               % units and numbers
+\sisetup{detect-all}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{hyperref}              % links
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue}
+\usepackage[nameinlink,capitalise]{cleveref}  % smart refs
+\usepackage[intoc]{nomencl}        % list of symbols (optional but supported)
+\makenomenclature
+% Add your custom preamble commands here
+\setlength{\headheight}{14.5pt}
+\usepackage{fancyhdr}              % headers/footers
+\usepackage{caption}
+\captionsetup{font=small}
+\newcommand{\tab}{\hspace*{2em}}
+\usepackage{makecell} 
+\usepackage{textcomp}
+\usepackage{gensymb}
+\providecommand{\perthousand}{\textperthousand}
+\usepackage{indentfirst}
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{subfiles}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{coffeestains}
+\usepackage{multicol}
+\usepackage[table]{xcolor}
+
+
+% ---------- Bibliography (numeric, in order of first citation) ----------
+\usepackage[backend=biber,style=ieee,sorting=none,uniquename=false]{biblatex}
+\addbibresource{refs.bib}
+
+% ── Page style ────────────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Semester 1 Report}
+\lhead{Alexander Jakopin }
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---------- Equation numbering ----------
+\numberwithin{equation}{section}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+% ---------- Helper macros ----------
+\newcommand{\course}{TAM 599 -- Thesis Research}
+\newcommand{\project}{Semester 1 Report}
+\newcommand{\institution}{University of Illinois at Urbana-Champaign}
+\newcommand{\semester}{Fall 2026}
+\newcommand{\teammembers}{Alexander Jakopin}
+
+% ---------- Title Page ----------
+\title{\vspace{-2em}\textbf{Semester 1 Report}\\
+\large  }
+\author{ Alexander Jakopin \\
+Course \& Section: \textit{TAM 599-XX}\\
+Date: \textit{Month Day, Year}}
+\date{} % we'll place all info manually on title page
+
+% --- Required packages ---
+\usepackage{graphicx}
+\usepackage{float}            % for [H]
+\usepackage[framemethod=default]{mdframed}
+
+% --- Consistent caption sizing (optional) ---
+\usepackage{caption}
+\captionsetup{font=small}
+
+% --- A reusable frame style for figures/tables ---
+\newmdenv[
+  linewidth=0.6pt,
+  roundcorner=6pt,
+  innertopmargin=6pt,
+  innerbottommargin=6pt,
+  innerleftmargin=8pt,
+  innerrightmargin=8pt,
+  backgroundcolor=white
+]{figframe}
+
+\newmdenv[
+  linewidth=0.6pt,
+  roundcorner=6pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  innerleftmargin=8pt,
+  innerrightmargin=8pt,
+  backgroundcolor=white
+]{tableframe}
+
+% --- Framed figure environment: caption BELOW (inside frame) ---
+\newenvironment{framedfigure}[1][H]{%
+  \begin{figure}[#1]\centering\begin{figframe}
+}{%
+  \end{figframe}\end{figure}
+}
+
+% --- Framed table environment: caption ABOVE (inside frame) ---
+\newenvironment{framedtable}[1][H]{%
+  \begin{table}[#1]\centering\begin{tableframe}
+}{%
+  \end{tableframe}\end{table}
+}
+
+\titleformat{\paragraph}[block]{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\newcommand{\Ef}{E_{1f}}
+\newcommand{\Em}{E_m}
+\newcommand{\Vf}{V_f}
+
+\usepackage{placeins}
+
+%\usepackage{array}
+%\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{ltablex}
+\keepXColumns  % important - see note below
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\usepackage{adjustbox}
+
+
+\usepackage{pdfpages}
