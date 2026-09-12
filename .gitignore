@@ -1,0 +1,70 @@
+# VASP output -- copy this to .gitignore at the root of your repository
+#
+# Rule of thumb: commit INPUTS and small text results. Never commit large
+# binaries or anything you can regenerate in a few minutes.
+
+# --- large binaries: never commit these ---
+WAVECAR
+CHGCAR
+CHG
+WAVEDER
+PROCAR
+LOCPOT
+ELFCAR
+AECCAR*
+TMPCAR
+
+# --- large XML: regenerable, and often 10s-100s of MB ---
+vasprun.xml
+
+# --- bulk output: keep locally, do not commit ---
+OUTCAR
+EIGENVAL
+DOSCAR
+IBZKPT
+XDATCAR
+REPORT
+PCDAT
+vasptmp*
+
+# --- POTCARs are LICENSED. Never commit them anywhere, ever. ---
+POTCAR
+
+# --- job/system noise ---
+*.out
+*.err
+slurm-*.out
+.DS_Store
+
+# --- Python ---
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# ============================================================
+# DO commit: POSCAR, CONTCAR, INCAR, KPOINTS, OSZICAR,
+# your scripts, your plots, and your notes.
+#
+# OSZICAR is small and is the convergence history -- it is worth
+# having in the repo. CONTCAR is the relaxed structure, which is
+# a real result. Both are text and both are tiny.
+# ============================================================
+
+# --- LaTeX ---
+#the following have been added to the .gitignore file to avoid committing LaTeX build artifacts, which are generated during the compilation of LaTeX documents and are not necessary to include in version control. These files can be regenerated from the source files, so they should be ignored to keep the repository clean and focused on the source content.
+# LaTeX build artifacts (Overleaf builds these itself)
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nlo
+*.nls
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+out/
+main.pdf
