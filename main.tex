@@ -7,7 +7,35 @@
 \subfile{sections/titlepage}
 
 \section{Introduction}
-test push
-\section{}
+
+
+
+
+\section{Methods}
+\begin{framedfigure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/si_encut_convergence.png}
+    \caption{.}
+    \label{fig:Si_encut_convergence}
+\end{framedfigure}
+\FloatBarrier  % prevents later figures from jumping before this point
+
+\begin{framedfigure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/si_kpoints_convergence.png}
+    \caption{.}
+    \label{fig:Si_kpoints_convergence}
+\end{framedfigure}
+\FloatBarrier  % prevents later figures from jumping before this point
+
+\begin{framedfigure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/si_difference_convergence.png}
+    \caption{.}
+    \label{fig:Si_difference_convergence}
+\end{framedfigure}
+\FloatBarrier  % prevents later figures from jumping before this point
+
+For silicon in the 8-atom conventional cell, total energy is converged to within 1 meV/atom at ENCUT = 400 eV (reference: 600 eV) and a 5 × 5 × 5 Gamma-centered mesh (reference: 13 × 13 × 13). Evidence: `encutconvergence.png`, `kpointsconvergence.png`. Energy differences between cells of the same size converge by 250 eV. Cell relaxation at 250 eV gives a lattice constant 0.0036 Å smaller than at 550 eV, consistent with Pulay stress.
 
 \end{document}
