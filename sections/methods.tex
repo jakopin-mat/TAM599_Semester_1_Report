@@ -1,6 +1,36 @@
-\begin{methods}
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
 
+\subsection{Silicon Convergence}
+\begin{framedfigure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/si_encut_convergence.png}
+    \caption{.}
+    \label{fig:Si_encut_convergence}
+\end{framedfigure}
+\FloatBarrier  % prevents later figures from jumping before this point
 
+\begin{framedfigure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/si_kpoints_convergence.png}
+    \caption{.}
+    \label{fig:Si_kpoints_convergence}
+\end{framedfigure}
+\FloatBarrier  % prevents later figures from jumping before this point
+
+\begin{framedfigure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/si_difference_convergence.png}
+    \caption{.}
+    \label{fig:Si_difference_convergence}
+\end{framedfigure}
+\FloatBarrier  % prevents later figures from jumping before this point
+
+For silicon in the 8-atom conventional cell, total energy is converged to within 1 meV/atom at ENCUT = 400 eV (reference: 600 eV) and a 5 × 5 × 5 Gamma-centered mesh (reference: 13 × 13 × 13). Evidence: \cref{fig:Si_encut_convergence}, \cref{fig:Si_kpoints_convergence}. Energy differences between cells of the same size converge by 250 eV. Cell relaxation at 250 eV gives a lattice constant 0.0036 Å smaller than at 550 eV, consistent with Pulay stress.
+
+\subsection{DFT Band Gap problem}
+The DFT band gap problem is an inherent error when using semi-local functionals, where the gap between valence and conduction bands is (sometimes severely) underestimated. The magnitude of the error is dependent on the functional used, but cannot be eliminated by adding more precision to the numerical calculations because the functionals themselves do not capture the derivative discontinuity in the exchange-correlation energy. This leaves out a portion of the true physics of the model that converging the cutoff energy and the k-point density doesn't even touch. While the results may be qualitatively useful in determining the general shape of the band structure, they are unreliable for quantitative use in defect analysis since defect levels are calculated relative to the edges of the band gap. An underestimated gap can misplace transition levels inside it, potentially misrepresenting or even discounting certain charge states.
 
     
-\end{methods}
+\end{document}

@@ -36,46 +36,16 @@
 \usepackage{coffeestains}
 \usepackage{multicol}
 \usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{ltablex}
+\keepXColumns  % important - see note below
+\newcolumntype{C}{>{\centering\arraybackslash}X}
 
-
-% ---------- Bibliography (numeric, in order of first citation) ----------
-\usepackage[backend=biber,style=ieee,sorting=none,uniquename=false]{biblatex}
-\addbibresource{refs.bib}
-
-% ── Page style ────────────────────────────────────────────────────────────────
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{Semester 1 Report}
-\lhead{Alexander Jakopin }
-\rfoot{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-
-% ---------- Equation numbering ----------
-\numberwithin{equation}{section}
-\usepackage{chngcntr}
-\counterwithin{figure}{section}
-\counterwithin{table}{section}
-
-% ---------- Helper macros ----------
-\newcommand{\course}{TAM 599 -- Thesis Research}
-\newcommand{\project}{Semester 1 Report}
-\newcommand{\institution}{University of Illinois at Urbana-Champaign}
-\newcommand{\semester}{Fall 2026}
-\newcommand{\teammembers}{Alexander Jakopin}
-\newcommand{\advisors}{Dr. Elif Ertekin}
-
-% ---------- Title Page ----------
-\title{\vspace{-2em}\textbf{Semester 1 Report}\\
-\large  }
-\author{ Alexander Jakopin \\
-Course \& Section: \textit{TAM 599-XX}\\
-Date: \textit{Month Day, Year}}
-\date{} % we'll place all info manually on title page
-
-% --- Required packages ---
-\usepackage{graphicx}
-\usepackage{float}            % for [H]
+\usepackage{adjustbox}
+\usepackage{pdfpages}
 \usepackage[framemethod=default]{mdframed}
+\usepackage{placeins}
 
 % --- Consistent caption sizing (optional) ---
 \usepackage{caption}
@@ -119,25 +89,44 @@ Date: \textit{Month Day, Year}}
 \titleformat{\paragraph}[block]{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
 \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
-\newcommand{\Ef}{E_{1f}}
-\newcommand{\Em}{E_m}
-\newcommand{\Vf}{V_f}
 
-\usepackage{placeins}
-
-%\usepackage{array}
-%\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+% ---------- Equation numbering ----------
+\numberwithin{equation}{section}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
 
 
-\usepackage{array}
-\usepackage{tabularx}
-\usepackage{longtable}
-\usepackage{ltablex}
-\keepXColumns  % important - see note below
-
-\newcolumntype{C}{>{\centering\arraybackslash}X}
-
-\usepackage{adjustbox}
+% ---------- Bibliography (numeric, in order of first citation) ----------
+\usepackage[backend=biber,style=ieee,sorting=none,uniquename=false]{biblatex}
+\addbibresource{refs.bib}
 
 
-\usepackage{pdfpages}
+% ---------- Helper macros ----------
+\newcommand{\course}{TAM 599 -- Thesis Research}
+\newcommand{\project}{Semester 1 Report}
+\newcommand{\institution}{University of Illinois at Urbana-Champaign}
+\newcommand{\semester}{Fall 2026}
+\newcommand{\primaryauthor}{Alexander Jakopin}
+\newcommand{\secondaryauthor}{}
+\newcommand{\teammembers}{Alexander Jakopin}
+\newcommand{\primaryadvisor}{Dr. Elif Ertekin}
+\newcommand{\advisors}{Dr. Elif Ertekin}
+
+% ── Page style ────────────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\project}
+\lhead{\primaryauthor }
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---------- Title Page ----------
+\title{\vspace{-2em}\textbf{Semester 1 Report}\\
+\large  }
+\author{ Alexander Jakopin \\
+Course \& Section: \textit{TAM 599-XX}\\
+Date: \textit{Month Day, Year}}
+\date{} % we'll place all info manually on title page
+
+
