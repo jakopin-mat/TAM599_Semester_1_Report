@@ -68,3 +68,4 @@ __pycache__/
 *.toc
 out/
 main.pdf
+*.pdf

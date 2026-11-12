@@ -5,7 +5,7 @@
 \subsection{Silicon Convergence}
 \begin{framedfigure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/si_encut_convergence.png}
+    \includegraphics[width=\linewidth]{si_encut_convergence.png}
     \caption{.}
     \label{fig:Si_encut_convergence}
 \end{framedfigure}
@@ -13,7 +13,7 @@
 
 \begin{framedfigure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/si_kpoints_convergence.png}
+    \includegraphics[width=\linewidth]{si_kpoints_convergence.png}
     \caption{.}
     \label{fig:Si_kpoints_convergence}
 \end{framedfigure}
@@ -21,7 +21,7 @@
 
 \begin{framedfigure}[H]
     \centering
-    \includegraphics[width=\linewidth]{images/si_difference_convergence.png}
+    \includegraphics[width=\linewidth]{si_difference_convergence.png}
     \caption{.}
     \label{fig:Si_difference_convergence}
 \end{framedfigure}
@@ -31,6 +31,68 @@ For silicon in the 8-atom conventional cell, total energy is converged to within
 
 \subsection{DFT Band Gap problem}
 The DFT band gap problem is an inherent error when using semi-local functionals, where the gap between valence and conduction bands is (sometimes severely) underestimated. The magnitude of the error is dependent on the functional used, but cannot be eliminated by adding more precision to the numerical calculations because the functionals themselves do not capture the derivative discontinuity in the exchange-correlation energy. This leaves out a portion of the true physics of the model that converging the cutoff energy and the k-point density doesn't even touch. While the results may be qualitatively useful in determining the general shape of the band structure, they are unreliable for quantitative use in defect analysis since defect levels are calculated relative to the edges of the band gap. An underestimated gap can misplace transition levels inside it, potentially misrepresenting or even discounting certain charge states.
+
+\subsection{Comparing PBE and HSE06}
+
+
+\begin{table}[htbp]
+  \centering
+  \small % slightly smaller font
+  \caption{Comparison of PBE and HSE06 results for wurtzite GaN against experiment.
+  Percentages in parentheses are relative errors with respect to experiment,
+  $(\text{calc}-\text{expt})/\text{expt}$. The HSE06 run used \texttt{NKRED = 1}.}
+  \label{tab:pbe_vs_hse06_gan}
+  \begin{tabular}{l rrr}
+    \toprule
+    Quantity & PBE & HSE06 & Expt. \\
+    \midrule
+    \texttt{ENCUT} (eV)        & 400 & 400 & --- \\
+    Converged $k$-mesh         & $5\times5\times3$ & $5\times5\times3$ & --- \\
+    \texttt{NKRED}             & --- & 1 & --- \\
+    \midrule
+    $a$ (\AA)                  & 3.1982 (+0.29\%) & 3.1645 ($-$0.77\%) & 3.189 \\
+    $c$ (\AA)                  & 5.2085 (+0.59\%) & 5.1446 ($-$0.65\%) & 5.178 \\
+    $c/a$                      & 1.6286 (+0.30\%) & 1.6257 (+0.12\%)   & 1.6237 \\
+    Band gap (eV)              & 1.829 ($-$46.1\%) & 3.383 ($-$0.2\%)  & 3.39 \\
+    $\Delta H_\mathrm{f}$ (eV) & $-$0.936 ($-$42.4\%) & $-$1.215 ($-$25.2\%) & $-$1.625 \\
+    \midrule
+    CPU time, relaxation       & 399.275 & 1687.755 & --- \\
+    CPU time, bulk Ga          &  &  & --- \\ % TODO: fill in
+    CPU time, bulk N           &  &  & --- \\ % TODO: fill in
+    CPU time, $\Delta H_\mathrm{f}$ &  &  & --- \\ % TODO: fill in
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% ---------------------------------------------------------------- AlN
+\begin{table}[htbp]
+  \centering
+  \small % slightly smaller font
+  \caption{Comparison of PBE and HSE06 results for wurtzite AlN against experiment.
+  Percentages in parentheses are relative errors with respect to experiment,
+  $(\text{calc}-\text{expt})/\text{expt}$. The HSE06 run used \texttt{NKRED = 1}.}
+  \label{tab:pbe_vs_hse06_aln}
+  \begin{tabular}{l rrr}
+    \toprule
+    Quantity & PBE & HSE06 & Expt. \\
+    \midrule
+    \texttt{ENCUT} (eV)        & 400 & 400 & --- \\
+    Converged $k$-mesh         & $5\times5\times3$ & $5\times5\times3$ & --- \\
+    \texttt{NKRED}             & --- & 1 & --- \\
+    \midrule
+    $a$ (\AA)                  & 3.1120 (+0.00\%) & 3.0869 ($-$0.81\%) & 3.112 \\
+    $c$ (\AA)                  & 4.9826 (+0.01\%) & 4.9365 ($-$0.91\%) & 4.982 \\
+    $c/a$                      & 1.6011 (+0.01\%) & 1.5992 ($-$0.11\%) & 1.6009 \\
+    Band gap (eV)              & 4.187 ($-$32.5\%) & 5.802 ($-$6.4\%)  & 6.2 \\
+    $\Delta H_\mathrm{f}$ (eV) & $-$2.831 ($-$14.1\%) & $-$3.136 ($-$4.8\%) & $-$3.296 \\
+    \midrule
+    CPU time, relaxation       & 250.325 & 185.714 & --- \\
+    CPU time, bulk Al          &  &  & --- \\ % TODO: fill in
+    CPU time, bulk N           &  &  & --- \\ % TODO: fill in
+    CPU time, $\Delta H_\mathrm{f}$ &  &  & --- \\ % TODO: fill in
+    \bottomrule
+  \end{tabular}
+\end{table}
 
     
 \end{document}
